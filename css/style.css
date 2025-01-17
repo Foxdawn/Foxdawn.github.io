@@ -58,4 +58,46 @@ footer {
     padding: 1rem;
     background-color: #f8f9fa;
     margin-top: 2rem;
+}
+
+.tag {
+    background-color: #e9ecef;
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+}
+
+.blog-post h2 a {
+    color: #333;
+    text-decoration: none;
+}
+
+.blog-post h2 a:hover {
+    color: #007bff;
+}
+
+.post-content {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+
+.post-content pre {
+    white-space: pre-wrap;
+    font-family: inherit;
+}
+
+.no-posts {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    margin: 2rem 0;
+}
+
+.no-posts p {
+    color: #666;
+    font-size: 1.1rem;
 } 
