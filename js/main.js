@@ -8,10 +8,17 @@ const posts = [
     }
 ];
 
-document.addEventListener('DOMContentLoaded', function() {
+// 等待搜索组件加载完成后初始化搜索功能
+function initializeSearch() {
     const articlesSection = document.getElementById('articles');
     const searchInput = document.getElementById('searchInput');
     const searchButton = document.getElementById('searchButton');
+    
+    if (!searchInput || !searchButton) {
+        // 如果组件还没加载完成，等待100ms后重试
+        setTimeout(initializeSearch, 100);
+        return;
+    }
     
     // 显示初始文章列表
     displayPosts(posts);
@@ -78,4 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         displayPosts(filteredPosts);
     }
-}); 
+}
+
+// 在 DOM 加载完成后开始初始化
+document.addEventListener('DOMContentLoaded', initializeSearch); 

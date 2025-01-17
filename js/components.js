@@ -12,5 +12,6 @@ async function loadComponent(elementId, componentPath) {
 // 当文档加载完成时加载所有组件
 document.addEventListener('DOMContentLoaded', function() {
     loadComponent('header-placeholder', 'components/header.html');
+    loadComponent('search-placeholder', 'components/search.html');
     loadComponent('footer-placeholder', 'components/footer.html');
 }); 
