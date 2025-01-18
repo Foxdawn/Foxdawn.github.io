@@ -85,10 +85,10 @@ nav h1 {
 
 main {
     flex: 1;
-    max-width: 1600px;
+    max-width: 2000px;
     margin: 2rem auto;
-    padding: 0 1rem;
-    width: 90%;
+    padding: 0 2rem;
+    width: 95%;
 }
 
 .blog-post {
@@ -173,131 +173,20 @@ main {
     mix-blend-mode: multiply;
 }
 
+/* 搜索框基础样式 */
 .search-wrapper {
-    width: 90%;
+    width: 80%;
     padding: 0.2rem;
     backdrop-filter: blur(8px);
     border-radius: 50px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     background: rgba(255, 255, 255, 0.08);
     transition: all 0.3s ease;
-    max-width: 1400px;
+    max-width: 2000px;
     position: relative;
-}
-
-.search-wrapper:hover {
-    background: rgba(255, 255, 255, 0.12);
-    border-color: rgba(255, 255, 255, 0.2);
-}
-
-.search-box {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0;
-    position: relative;
-}
-
-#searchInput {
-    flex: 1;
-    padding: 0.5rem 1rem;
-    padding-right: 3rem;
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.9);
-    background: transparent;
-    border: none;
-    outline: none;
-    width: 100%;
-    min-width: unset;
-}
-
-#searchInput::placeholder {
-    color: rgba(255, 255, 255, 0.5);
-}
-
-#searchButton {
-    background: transparent;
-    border: none;
-    padding: 0.4rem;
-    cursor: pointer;
-    color: #333;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.2s ease;
-    position: absolute;
-    right: 0.5rem;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-#searchButton:hover {
-    transform: translateY(-50%) scale(1.1);
-}
-
-#searchButton svg {
-    width: 18px;
-    height: 18px;
-    transition: stroke 0.2s ease;
-    stroke: rgba(255, 255, 255, 0.8);
-}
-
-#searchButton:hover svg {
-    stroke: #fff;
-}
-
-.search-results {
-    margin-top: 2rem;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 12px;
-    padding: 2rem;
-    backdrop-filter: blur(4px);
-}
-
-.home-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 60vh;
-}
-
-.welcome-message {
-    text-align: center;
-    color: rgba(255, 255, 255, 0.9);
-    margin-top: 2rem;
-}
-
-.welcome-message h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.welcome-message p {
-    font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.home-content .search-wrapper {
-    margin: 0 auto 2rem;
-}
-
-.search-results .search-wrapper {
     margin: 2rem auto;
 }
 
-.search-wrapper {
-    width: 90%;
-    padding: 0.2rem;
-    backdrop-filter: blur(8px);
-    border-radius: 50px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background: rgba(255, 255, 255, 0.08);
-    transition: all 0.3s ease;
-    max-width: 1400px;
-    position: relative;
-}
-
 .search-wrapper:hover {
     background: rgba(255, 255, 255, 0.12);
     border-color: rgba(255, 255, 255, 0.2);
@@ -367,26 +256,34 @@ main {
     backdrop-filter: blur(4px);
 }
 
+/* 首页布局样式 */
 .home-content {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 60vh;
+    min-height: 80vh;
+    width: 100%;
 }
 
-.welcome-message {
-    text-align: center;
-    color: rgba(255, 255, 255, 0.9);
+/* 文章页面搜索结果样式 */
+.search-results {
     margin-top: 2rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    padding: 2rem;
+    backdrop-filter: blur(4px);
 }
 
-.welcome-message h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+/* 首页主容器样式 */
+.home-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 140px); /* 减去头部和底部的高度 */
 }
 
-.welcome-message p {
-    font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.7);
+/* 首页搜索框容器样式 */
+.home-main #search-placeholder {
+    width: 100%;
 } 
