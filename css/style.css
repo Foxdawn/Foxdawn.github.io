@@ -305,8 +305,8 @@ main {
     align-items: center;
     justify-content: center;
     height: 100%;
-    gap: 2rem;
-    transform: translateY(-80px);
+    gap: 1rem;
+    transform: translateY(-50px);
     transition: all 0.5s ease;
 }
 
@@ -472,7 +472,7 @@ main:not(.home-main) #search-placeholder {
 
 /* 欢迎标题样式 */
 .welcome-title {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     text-align: center;
     opacity: 1;
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
@@ -501,5 +501,54 @@ main:not(.home-main) #search-placeholder {
     align-items: center;
     justify-content: center;
     height: 100%;
-    gap: 2rem;
+    gap: 1rem;
+}
+
+/* 每日一言样式 */
+.daily-quote {
+    text-align: center;
+    margin-top: 1rem;
+    opacity: 1;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.quote-content, .quote-note {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    background-size: 400% 400%;
+    animation: gradientMove 8s ease infinite;
+    background-image: linear-gradient(
+        90deg,
+        rgba(255, 111, 241, 0.9),
+        rgba(94, 196, 255, 0.9),
+        rgba(73, 255, 172, 0.9),
+        rgba(255, 111, 241, 0.9)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.quote-note {
+    font-size: 1rem;
+}
+
+/* 渐变动画 */
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* 收起状态时隐藏每日一言 */
+.collapsed .daily-quote {
+    opacity: 0;
+    transform: translateY(-20px);
 } 

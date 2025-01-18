@@ -35,6 +35,26 @@ function initializeToggleButton() {
     }
 }
 
+// 获取每日一言
+async function fetchDailyQuote() {
+    try {
+        const response = await fetch('https://api.t1qq.com/api/tool/daytry?key=glsc8l6icBsJfDiBsgfUTEuQxa&time=random');
+        const data = await response.json();
+        
+        if (data.code === 200) {
+            const quoteContent = document.querySelector('.quote-content');
+            const quoteNote = document.querySelector('.quote-note');
+            
+            if (quoteContent && quoteNote) {
+                quoteContent.textContent = data.data.content;
+                quoteNote.textContent = data.data.note;
+            }
+        }
+    } catch (error) {
+        console.error('获取每日一言失败:', error);
+    }
+}
+
 // 监听组件加载完成事件
 document.addEventListener('allComponentsLoaded', function() {
     // 尝试初始化搜索功能
@@ -43,4 +63,6 @@ document.addEventListener('allComponentsLoaded', function() {
     }
     // 初始化下拉按钮
     initializeToggleButton();
+    // 获取每日一言
+    fetchDailyQuote();
 }); 
