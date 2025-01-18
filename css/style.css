@@ -25,10 +25,10 @@ body {
 }
 
 header {
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: rgba(33, 37, 41, 0.85);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 nav ul {
@@ -39,7 +39,7 @@ nav ul {
 
 nav a {
     text-decoration: none;
-    color: #34495e;
+    color: rgba(255, 255, 255, 0.8);
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -49,17 +49,18 @@ nav a {
 }
 
 nav a:hover {
-    color: #007bff;
-    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 nav a svg {
     transition: all 0.3s ease;
+    stroke: rgba(255, 255, 255, 0.8);
 }
 
 nav a:hover svg {
     transform: scale(1.1);
-    stroke: #007bff;
+    stroke: #fff;
 }
 
 nav a span {
@@ -67,17 +68,17 @@ nav a span {
 }
 
 nav a.active {
-    color: #007bff;
-    background-color: rgba(0, 123, 255, 0.1);
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.15);
 }
 
 nav a.active svg {
-    stroke: #007bff;
+    stroke: #fff;
 }
 
 nav h1 {
     font-size: 1.5rem;
-    color: #2c3e50;
+    color: #fff;
     font-weight: 600;
     letter-spacing: 0.5px;
 }
@@ -105,15 +106,15 @@ main {
 .footer {
     text-align: center;
     padding: 1rem;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(33, 37, 41, 0.85);
     backdrop-filter: blur(8px);
     margin-top: auto;
     width: 100%;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer p {
-    color: #333;
+    color: rgba(255, 255, 255, 0.8);
     font-size: 0.9rem;
 }
 
@@ -168,6 +169,8 @@ main {
     background: url('../public/background.gif') center center/cover no-repeat fixed;
     opacity: 0.6;
     z-index: -1;
+    background-color: #000;
+    mix-blend-mode: multiply;
 }
 
 .search-wrapper {
@@ -177,16 +180,15 @@ main {
     backdrop-filter: blur(8px);
     border-radius: 50px;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.08);
     transition: all 0.3s ease;
     max-width: 1400px;
     position: relative;
 }
 
 .search-wrapper:hover {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .search-box {
@@ -202,7 +204,7 @@ main {
     padding: 0.5rem 1rem;
     padding-right: 3rem;
     font-size: 1.1rem;
-    color: #333;
+    color: rgba(255, 255, 255, 0.9);
     background: transparent;
     border: none;
     outline: none;
@@ -211,7 +213,7 @@ main {
 }
 
 #searchInput::placeholder {
-    color: rgba(0, 0, 0, 0.5);
+    color: rgba(255, 255, 255, 0.5);
 }
 
 #searchButton {
@@ -238,10 +240,11 @@ main {
     width: 18px;
     height: 18px;
     transition: stroke 0.2s ease;
+    stroke: rgba(255, 255, 255, 0.8);
 }
 
 #searchButton:hover svg {
-    stroke: #007bff;
+    stroke: #fff;
 }
 
 .search-results {
