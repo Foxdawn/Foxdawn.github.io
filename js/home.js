@@ -25,10 +25,22 @@ function initializeHomeSearch() {
     return true;
 }
 
+// 初始化下拉按钮功能
+function initializeToggleButton() {
+    const toggleButton = document.querySelector('.toggle-button');
+    if (toggleButton) {
+        toggleButton.addEventListener('click', function() {
+            document.body.classList.toggle('collapsed');
+        });
+    }
+}
+
 // 监听组件加载完成事件
 document.addEventListener('allComponentsLoaded', function() {
     // 尝试初始化搜索功能
     if (!initializeHomeSearch()) {
         console.error('Search components not found after loading');
     }
+    // 初始化下拉按钮
+    initializeToggleButton();
 }); 

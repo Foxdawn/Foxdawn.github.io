@@ -25,10 +25,15 @@ body {
 }
 
 header {
-    background-color: rgba(33, 37, 41, 0.85);
+    background-color: rgba(33, 37, 41, 0.95);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 nav ul {
@@ -89,6 +94,7 @@ main {
     margin: 0 auto;
     padding: 0 2rem;
     width: 95%;
+    margin-top: 80px;
 }
 
 .blog-post {
@@ -106,11 +112,16 @@ main {
 .footer {
     text-align: center;
     padding: 1rem;
-    background-color: rgba(33, 37, 41, 0.85);
+    background-color: rgba(33, 37, 41, 0.95);
     backdrop-filter: blur(8px);
     margin-top: auto;
     width: 100%;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 .footer p {
@@ -288,10 +299,15 @@ main {
 
 /* 首页主容器样式 */
 .home-main {
+    margin-top: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100%;
+    gap: 2rem;
+    transform: translateY(-80px);
+    transition: all 0.5s ease;
 }
 
 /* 首页搜索框容器样式 */
@@ -302,7 +318,7 @@ main {
 /* 文章页面搜索框样式 */
 main:not(.home-main) #search-placeholder {
     width: 100%;
-    margin-top: 3rem; /* 增加与顶部导航栏的距离 */
+    margin-top: 3rem;
 }
 
 /* 文章页面搜索结果容器样式 */
@@ -312,4 +328,178 @@ main:not(.home-main) #search-placeholder {
     border-radius: 12px;
     padding: 2rem;
     backdrop-filter: blur(4px);
+}
+
+/* 下拉按钮样式 */
+.toggle-button {
+    position: fixed;
+    bottom: 80px; /* 调整距离底部的距离 */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.toggle-button svg {
+    stroke: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+}
+
+.toggle-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.toggle-button:hover svg {
+    stroke: #fff;
+}
+
+/* 添加收起状态的样式 */
+.collapsed .background-overlay {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.collapsed .home-main {
+    transform: translateY(-100%) translateY(-80px);
+    opacity: 0;
+}
+
+/* 修改过渡效果，只对背景和主内容应用 */
+.background-overlay,
+.home-main {
+    transition: all 0.5s ease;
+}
+
+/* 按钮旋转效果 */
+.collapsed .toggle-button svg {
+    transform: rotate(180deg);
+}
+
+/* 修改按钮在收起状态下的样式 */
+.collapsed .toggle-button {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* 添加深色背景层，默认隐藏 */
+.dark-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1a1a1a;
+    z-index: -2;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+/* 收起状态时显示深色背景 */
+.collapsed .dark-background {
+    opacity: 1;
+}
+
+/* 修改背景图层的过渡效果 */
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../public/background.gif') center center/cover no-repeat fixed;
+    opacity: 0.6;
+    z-index: -1;
+    background-color: #000;
+    mix-blend-mode: multiply;
+    transition: opacity 0.5s ease;
+}
+
+/* 收起状态时隐藏背景图层 */
+.collapsed .background-overlay {
+    opacity: 0;
+}
+
+/* 修改过渡效果的时间和缓动函数 */
+.background-overlay,
+.home-main,
+.dark-background {
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);  /* 使用更平滑的缓动函数 */
+}
+
+/* 修改背景层的过渡效果 */
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../public/background.gif') center center/cover no-repeat fixed;
+    opacity: 0.6;
+    z-index: -1;
+    background-color: #000;
+    mix-blend-mode: multiply;
+}
+
+/* 深色背景层的过渡效果 */
+.dark-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1a1a1a;
+    z-index: -2;
+    opacity: 0;
+}
+
+/* 按钮过渡效果 */
+.toggle-button {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.toggle-button svg {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 欢迎标题样式 */
+.welcome-title {
+    margin-bottom: 2rem;
+    text-align: center;
+    opacity: 1;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.welcome-title h1 {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin: 0;
+    font-family: KaiTi, "楷体", STKaiti, "华文楷体", serif;
+}
+
+/* 收起状态时隐藏欢迎标题 */
+.collapsed .welcome-title {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+/* 修改主内容区域的间距 */
+.home-main {
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 2rem;
 } 
