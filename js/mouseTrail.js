@@ -14,6 +14,9 @@ function createMouseTrail() {
     
     // 粒子数组
     let particles = [];
+    let lastX = 0;
+    let lastY = 0;
+    let autoAngle = 0;
     
     // 调整canvas大小
     function resizeCanvas() {
@@ -51,14 +54,34 @@ function createMouseTrail() {
     
     // 处理鼠标移动
     function handleMouseMove(e) {
+        lastX = e.clientX;
+        lastY = e.clientY;
+        
         for (let i = 0; i < 3; i++) {
-            particles.push(new Particle(e.clientX, e.clientY));
+            particles.push(new Particle(lastX, lastY));
+        }
+    }
+    
+    // 自动生成粒子
+    function generateAutoParticles() {
+        // 在鼠标最后位置周围生成粒子
+        const radius = 5; // 小范围半径
+        autoAngle += 0.1; // 控制运动速度
+        
+        const offsetX = Math.cos(autoAngle) * radius;
+        const offsetY = Math.sin(autoAngle) * radius;
+        
+        for (let i = 0; i < 2; i++) {
+            particles.push(new Particle(lastX + offsetX, lastY + offsetY));
         }
     }
     
     // 动画循环
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // 自动生成粒子
+        generateAutoParticles();
         
         for (let i = particles.length - 1; i >= 0; i--) {
             particles[i].update();
